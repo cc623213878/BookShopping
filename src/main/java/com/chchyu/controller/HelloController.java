@@ -29,10 +29,11 @@ public class HelloController {
         	HttpSession session = request.getSession();
         	if ((user= (User) session.getAttribute("user"))!=null) {
 				m.addAttribute("user",user.getUsername());
+				return "hello";
 			}else {
 				m.addAttribute("user","没有任何用户登录");
+				return "redirect:login";
 			}
-        	return "hello";
 		} catch (Exception e) {
 			// TODO: handle exception
             throw new Exception("hello exception");
@@ -76,7 +77,7 @@ public class HelloController {
 	        	HttpSession sessoin = request.getSession();
 	        	sessoin.setAttribute("user", user);
 				m.addAttribute("user",user.getUsername());
-				return "redirect:hello";
+				return "redirect:index";
 			}else {
 				m.addAttribute("errorinfo","账号输入错误或密码错误");
 				return "redirect:login";
@@ -95,7 +96,7 @@ public class HelloController {
         	user.setPassword(MD5.getInstance().getMD5(request.getParameter("password")));
         	if (userDAO.save(user) != null) {
         		m.addAttribute("user",request.getParameter("username"));
-				return "redirect:hello";
+				return "redirect:login";
 			}else {
 				m.addAttribute("errorinfo","注册失败");
 				return "redirect:reg";
