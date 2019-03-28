@@ -1,4 +1,12 @@
-
+#allcost{
+    text-decoration: none;
+    background: #5fe1d9;
+    padding: 0 3px 0 3px;
+}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
 .book{
     width: 1070px;
     height: 1000px;
@@ -39,6 +47,10 @@
     line-height: 15px;
     height:30px ;
     overflow:hidden;
+}
+.shopping{
+    padding-left: 105px;
+    cursor: pointer;
 }
 #heard{
     width: 1060px;
